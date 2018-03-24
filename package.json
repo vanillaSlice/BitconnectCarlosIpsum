@@ -1,0 +1,11 @@
+{
+  "name": "bitconnect-carlos-ipsum",
+  "version": "1.0.0",
+  "description": "Bitconnect Carlos Matos Lorem Ipsum Generator",
+  "main": "index.js",
+  "author": "Mike Lowe",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^5.8.0"
+  }
+}
