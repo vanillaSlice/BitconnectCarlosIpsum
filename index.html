@@ -9,7 +9,31 @@
 </head>
 
 <body>
-  <h1>Bitconneeeeeeeeeeeeeeeeeect</h1>
+  <h1>Bitconnect Carlos Ipsum</h1>
+  <form>
+    <label>
+      Paragraphs
+      <input type="number" value="5" min="1" max="99">
+    </label>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="ipsum">
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $('form').on('submit', function(e) {
+      e.preventDefault();
+      var paragraphs = $('input').val();
+      $.getJSON('/text?paragraphs=' + paragraphs, function(data) {
+        var ipsum = $('.ipsum');
+        ipsum.empty();
+        for (var i = 0; i < data.length; i++) {
+          var paragraph = data[i];
+          ipsum.append('<p>' + paragraph + '<p>');
+        }
+      });
+    })
+  </script>
 </body>
 
 </html>
