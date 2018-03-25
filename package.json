@@ -4,8 +4,16 @@
   "description": "Bitconnect Carlos Matos Lorem Ipsum Generator",
   "main": "index.js",
   "author": "Mike Lowe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum.git"
+  },
+  "private": true,
   "dependencies": {
     "express": "^4.16.3",
     "npm": "^5.8.0"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }
