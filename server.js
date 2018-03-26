@@ -49,7 +49,7 @@ app.get('/api/quotes/random', (req, res) => {
   });
 });
 
-app.get('/api/slack', (req, res) => {
+app.post('/api/slack', (req, res) => {
   res.send({
     text: getRandomQuote(),
     response_type: 'in_channel'
