@@ -16,7 +16,9 @@ app.get('/text', (req, res) => {
 });
 
 app.get('/random', (req, res) => {
-  res.send(getRandomQuote());
+  res.send({
+    'text': getRandomQuote()
+  });
 });
 
 function createParagraphs(numberOfParagraphs) {
