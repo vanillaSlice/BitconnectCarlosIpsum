@@ -18,7 +18,7 @@ app.get('/text', (req, res) => {
 app.get('/random', (req, res) => {
   res.send({
     text: getRandomQuote(),
-    response_type: 'ephemeral'
+    response_type: 'in_channel'
   });
 });
 
