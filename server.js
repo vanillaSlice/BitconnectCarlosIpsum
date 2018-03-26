@@ -15,6 +15,10 @@ app.get('/text', (req, res) => {
   res.send(paragraphs);
 });
 
+app.get('/random', (req, res) => {
+  res.send(getRandomQuote());
+});
+
 function createParagraphs(numberOfParagraphs) {
   const paragraphs = [];
   for (let i = 0; i < numberOfParagraphs; i++) {
