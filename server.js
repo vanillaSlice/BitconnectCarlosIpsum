@@ -17,7 +17,8 @@ app.get('/text', (req, res) => {
 
 app.get('/random', (req, res) => {
   res.send({
-    'text': getRandomQuote()
+    text: getRandomQuote(),
+    response_type: 'in_channel'
   });
 });
 
