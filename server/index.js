@@ -10,7 +10,7 @@ const quotesInParagraph = 10;
  */
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static('../client/build'));
 }
 
 function createParagraphs(numberOfParagraphs) {
