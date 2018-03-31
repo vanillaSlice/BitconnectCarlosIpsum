@@ -30,7 +30,6 @@ npm test
 ## API
 
 ### Get All Headings
----
 Returns all available headings.
 
 * **URL**
@@ -54,7 +53,6 @@ Returns all available headings.
   Unprocessable Entity (422)
 
 ### Get Random Heading
----
 Returns a random heading.
 
 * **URL**
@@ -78,7 +76,6 @@ Returns a random heading.
   Unprocessable Entity (422)
 
 ### Get All Quotes
----
 Returns all available quotes.
 
 * **URL**
@@ -100,7 +97,6 @@ Returns all available quotes.
   Success (200)
 
 ### Get Random Quote
----
 Returns a random quote.
 
 * **URL**
@@ -122,7 +118,6 @@ Returns a random quote.
   Success (200)
 
 ### Get Text
----
 Returns a number of text entries (made up of headings and paragraphs).
 
 * **URL**
