@@ -4,9 +4,9 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    fetch('/api/quotes')
-      .then(res => res.json())
-      .then(data => console.log(data.quotes));
+    // fetch('/api/quotes')
+    //   .then(res => res.json())
+    //   .then(data => console.log(data.quotes));
   }
 
   render() {

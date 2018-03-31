@@ -1,7 +1,7 @@
 {
   "name": "bitconnect-carlos-ipsum-server",
   "version": "1.0.0",
-  "description": "Bitconnect Carlos Matos Lorem Ipsum Generator",
+  "description": "Bitconnect Carlos Matos Lorem Ipsum Generator Server",
   "main": "index.js",
   "author": "Mike Lowe",
   "repository": {
@@ -11,9 +11,23 @@
   "private": true,
   "dependencies": {
     "express": "^4.16.3",
+    "express-validator": "^5.1.0",
     "npm": "^5.8.0"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node src/server.js",
+    "test": "run-s test:unit test:lint",
+    "test:unit": "jest --coverage",
+    "test:lint": "eslint src/"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
+    "npm-run-all": "^4.1.2",
+    "supertest": "^3.0.0"
   }
 }
