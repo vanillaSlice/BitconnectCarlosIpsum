@@ -47,6 +47,14 @@ const minQuotesLessThanMaxQuotesValidator = query('minQuotes')
     return value;
   });
 
+const maxQuotesGreaterThanMinQuotesValidator = query('maxQuotes')
+  .custom((value, { req }) => {
+    if (value < req.query.minQuotes) {
+      throw new Error('maxQuotes must be greater than minQuotes');
+    }
+    return value;
+  });
+
 /*
  * Using static client files only in production because client runs
  * on its own server in development.
@@ -67,9 +75,7 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/api/headings', [hTagLevelValidator], (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
-    const { hTagLevel } = req.query;
-    const resHeadings = hTagLevel ? addHTags(hTagLevel, headings) : headings;
-    res.send({ headings: resHeadings });
+    res.send({ headings: getHeadings(req.query.hTagLevel) });
   } else {
     res.status(422).send({ errors: errors.mapped() });
   }
@@ -78,10 +84,7 @@ app.get('/api/headings', [hTagLevelValidator], (req, res) => {
 app.get('/api/headings/random', [hTagLevelValidator], (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
-    const { hTagLevel } = req.query;
-    const heading = getRandomArrayElement(headings);
-    const resHeading = hTagLevel ? addHTag(hTagLevel, heading) : heading;
-    res.send({ heading: resHeading });
+    res.send({ heading: getRandomHeading(req.query.hTagLevel) });
   } else {
     res.status(422).send({ errors: errors.mapped() });
   }
@@ -90,9 +93,7 @@ app.get('/api/headings/random', [hTagLevelValidator], (req, res) => {
 app.get('/api/quotes', [includePTagsValidator], (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
-    const { includePTags } = req.query;
-    const resQuotes = includePTags ? addPTags(quotes) : quotes;
-    res.send({ quotes: resQuotes });
+    res.send({ quotes: getQuotes(req.query.includePTags) });
   } else {
     res.status(422).send({ errors: errors.mapped() });
   }
@@ -101,10 +102,7 @@ app.get('/api/quotes', [includePTagsValidator], (req, res) => {
 app.get('/api/quotes/random', [includePTagsValidator], (req, res) => {
   const errors = validationResult(req);
   if (errors.isEmpty()) {
-    const { includePTags } = req.query;
-    const quote = getRandomArrayElement(quotes);
-    const resQuote = includePTags ? addPTag(quote) : quote;
-    res.send({ quote: resQuote });
+    res.send({ quote: getRandomQuote(req.query.includePTags) });
   } else {
     res.status(422).send({ errors: errors.mapped() });
   }
@@ -119,49 +117,11 @@ app.get(
     includeHeadingsValidator,
     minQuotesAndMaxQuotesValidator,
     minQuotesLessThanMaxQuotesValidator,
+    maxQuotesGreaterThanMinQuotesValidator,
   ], (req, res) => {
     const errors = validationResult(req);
-
     if (errors.isEmpty()) {
-      const {
-        hTagLevel,
-        minQuotes,
-        maxQuotes,
-        paragraphs,
-        includeHeadings,
-        includePTags,
-      } = req.query;
-      const text = [];
-
-      for (let i = 0; i < paragraphs; i += 1) {
-        const entry = {};
-
-        if (includeHeadings) {
-          let heading = getRandomArrayElement(headings);
-          heading = hTagLevel ? addHTag(hTagLevel, heading) : heading;
-          entry.heading = heading;
-        }
-
-        let paragraph = '';
-
-        const quotesLength = getRandomInt(minQuotes, maxQuotes);
-
-        for (let j = 0; j < quotesLength; j += 1) {
-          paragraph += `${getRandomArrayElement(quotes)} `;
-        }
-
-        paragraph = paragraph.trim();
-
-        if (includePTags) {
-          paragraph = addPTag(paragraph);
-        }
-
-        entry.paragraph = paragraph;
-
-        text.push(entry);
-      }
-
-      res.send({ text });
+      res.send({ text: getText(req.query) });
     } else {
       res.status(422).send({ errors: errors.mapped() });
     }
@@ -172,12 +132,42 @@ app.get(
  * Helper functions
  */
 
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getRandomArrayElement(array) {
+  return array[getRandomInt(0, array.length - 1)];
+}
+
+function addTag(tag, content) {
+  return `<${tag}>${content}</${tag}>`;
+}
+
+function getHeadings(hTagLevel) {
+  return hTagLevel ? addHTags(hTagLevel, headings) : headings;
+}
+
+function getRandomHeading(hTagLevel) {
+  const heading = getRandomArrayElement(headings);
+  return hTagLevel ? addHTag(hTagLevel, heading) : heading;
+}
+
 function addHTags(hTagLevel, headings) {
   return headings.map(heading => addHTag(hTagLevel, heading));
 }
 
 function addHTag(hTagLevel, heading) {
   return addTag(`h${hTagLevel}`, heading);
+}
+
+function getQuotes(includePTags) {
+  return includePTags ? addPTags(quotes) : quotes;
+}
+
+function getRandomQuote(includePTags) {
+  const quote = getRandomArrayElement(quotes);
+  return includePTags ? addPTag(quote) : quote;
 }
 
 function addPTags(paragraphs) {
@@ -188,16 +178,42 @@ function addPTag(paragraph) {
   return addTag('p', paragraph);
 }
 
-function addTag(tag, content) {
-  return `<${tag}>${content}</${tag}>`;
+function getText(options) {
+  const text = [];
+  for (let i = 0; i < options.paragraphs; i += 1) {
+    text.push(getTextEntry(options));
+  }
+  return text;
 }
 
-function getRandomArrayElement(array) {
-  return array[getRandomInt(0, array.length - 1)];
+function getTextEntry(options) {
+  const entry = {};
+
+  if (options.includeHeadings) {
+    entry.heading = getRandomHeading(options.hTagLevel);
+  }
+
+  entry.paragraph = getParagraph(options);
+
+  return entry;
 }
 
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function getParagraph(options) {
+  let paragraph = '';
+
+  const quotesInParagraph = getRandomInt(options.minQuotes, options.maxQuotes);
+
+  for (let i = 0; i < quotesInParagraph; i += 1) {
+    paragraph += `${getRandomArrayElement(quotes)} `;
+  }
+
+  paragraph = paragraph.trim();
+
+  if (options.includePTags) {
+    paragraph = addPTag(paragraph);
+  }
+
+  return paragraph;
 }
 
 /*

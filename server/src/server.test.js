@@ -153,7 +153,20 @@ describe('GET /api/quotes/random', () => {
 describe('GET /api/text', () => {
   const baseUrl = '/api/text';
 
+  // include headings/excludes headings
+  // surrounds headings with h tags
+  // validate minQuote and maxQuote
+  // validate paragraphs
+
   expectInvalidHTagLevelsToThrowErrors(baseUrl);
+
+  // function expectInvalidParagraphsToThrowError(message, url) {
+  //   it(message, (done) => {
+  //     request(server)
+  //       .get(url)
+  //       .expect(422, done);
+  //   });
+  // }
 });
 
 afterAll(() => {
