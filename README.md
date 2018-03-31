@@ -2,7 +2,7 @@
 A [Bitconnect Carlos](https://www.youtube.com/watch?v=QKO6IChjojI) Lorem Ipsum generator. A deployed
 version can be viewed [here](https://secret-tundra-67488.herokuapp.com/).
 
-The app is split into two parts: client and server. The client is built with React and the server is
+The app is split into two parts: the client and the server. The client is built with React and the server is
 built with Node.js.
 
 ## Installing dependencies
@@ -15,6 +15,8 @@ npm install
 npm start
 ```
 
+The server runs on [localhost:3001](http://localhost:3001). The client runs on [localhost:3000](http://localhost:3000).
+
 ## Building production files
 ```
 npm run build
@@ -26,4 +28,131 @@ npm test
 ```
 
 ## API
-TODO
+
+### Get All Headings
+---
+Returns all available headings.
+
+* **URL**
+
+  /api/headings
+
+* **Method**
+
+  GET
+
+* **URL Params**
+
+  **Optional**
+
+  hTagLevel=[integer in range 1-6]
+
+* **Response Codes**
+ 
+  Success (200)
+  
+  Unprocessable Entity (422)
+
+### Get Random Heading
+---
+Returns a random heading.
+
+* **URL**
+
+  /api/headings/random
+
+* **Method**
+
+  GET
+
+* **URL Params**
+
+  **Optional**
+
+  hTagLevel=[integer in range 1-6]
+
+* **Response Codes**
+ 
+  Success (200)
+  
+  Unprocessable Entity (422)
+
+### Get All Quotes
+---
+Returns all available quotes.
+
+* **URL**
+
+  /api/quotes
+
+* **Method**
+
+  GET
+
+* **URL Params**
+
+  **Optional**
+
+  includePTags=[boolean]
+
+* **Response Codes**
+ 
+  Success (200)
+
+### Get Random Quote
+---
+Returns a random quote.
+
+* **URL**
+
+  /api/quotes/random
+
+* **Method**
+
+  GET
+
+* **URL Params**
+
+  **Optional**
+
+  includePTags=[boolean]
+
+* **Response Codes**
+ 
+  Success (200)
+
+### Get Text
+---
+Returns a number of text entries (made up of headings and paragraphs).
+
+* **URL**
+
+  /api/text
+
+* **Method**
+
+  GET
+
+* **URL Params**
+
+  **Required**
+
+  paragraphs=[integer in range 1-100]
+  
+  minQuotes=[integer in range 1-20]
+
+  maxQuotes=[integer in range 1-20]
+
+  **Optional**
+
+  includePTags=[boolean]
+  
+  includeHeadings=[boolean]
+
+  hTagLevel=[integer in range 1-6]
+
+* **Response Codes**
+ 
+  Success (200)
+
+  Unprocessable Entity (422)
