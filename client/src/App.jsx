@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import carlos from './carlos.png';
+
 import './App.css';
 
 class App extends Component {
@@ -91,7 +93,11 @@ class App extends Component {
   render() {
     return (
       <div className="App text-center">
-        <h1>Bitconnect Carlos Ipsum</h1>
+        <h1 className="row flex-middle">
+          <img className="no-border left" src={carlos} alt="Carlos" />
+          Bitconnect Carlos Ipsum
+          <img className="no-border right" src={carlos} alt="Carlos" />
+        </h1>
         <div className="row">
           <form onSubmit={this.handleSubmit} className="md-3 text-left">
             <div className="form-group">
