@@ -1,18 +1,28 @@
-.App {
-  margin: 0 auto;
-  max-width: 1000px;
+h1 {
+  margin: 0;
 }
 
-img {
+header img {
   height: 4rem;
   width: 4rem;
 }
 
-img.left {
-  margin-right: 1rem;
+header img.right {
+  margin: 1rem 0 2.68rem;
+  transform: scaleX(-1);
 }
 
-img.right {
-  transform: scaleX(-1);
-  margin-left: 1rem;
+header img.left {
+  margin: 2.68rem 0 1rem;
+}
+
+@media (min-width: 62em) {
+  h1 {
+    margin: 2.68rem 0 1rem;
+  }
+
+  header img.left,
+  header img.right {
+    margin: 0;
+  }
 }
