@@ -26,18 +26,19 @@ class App extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
   }
 
-  // tidy this up
   handleFormSubmit(e) {
     e.preventDefault();
 
-    let url = '/api/text' +
-    `?paragraphs=${this.state.paragraphs}` +
-    `&includeHeadings=${this.state.hTagLevel !== 'none'}` +
-    `&minQuotes=${this.state.minQuotes}` +
-    `&maxQuotes=${this.state.maxQuotes}` +
-    `&includePTags=${this.state.includePTags}`;
+    const includeHeadings = this.state.hTagLevel !== 'none';
 
-    if (this.state.hTagLevel !== 'none') {
+    let url = '/api/text' +
+      `?paragraphs=${this.state.paragraphs}` +
+      `&includeHeadings=${includeHeadings}` +
+      `&minQuotes=${this.state.minQuotes}` +
+      `&maxQuotes=${this.state.maxQuotes}` +
+      `&includePTags=${this.state.includePTags}`;
+
+    if (includeHeadings) {
       url += `&hTagLevel=${this.state.hTagLevel}`;
     }
 
@@ -46,19 +47,17 @@ class App extends Component {
       .then((data) => {
         let text = '';
         if (!data.text) {
-          text = 'Could not generate text';
+          text = 'Error when generating text';
         } else {
           data.text.forEach((textEntry) => {
             if (textEntry.heading) {
               text += `${textEntry.heading}\n`;
             }
-            text += textEntry.paragraph;
-            text += '\n\n';
+            text += `${textEntry.paragraph}\n\n`;
           });
+          text = text.trim();
         }
-        this.setState({
-          text,
-        });
+        this.setState({ text });
       });
   }
 
@@ -67,13 +66,29 @@ class App extends Component {
   }
 
   handleMinQuotesChange(e) {
-    // make sure does not exceed max quotes
-    this.setState({ minQuotes: e.target.value });
+    const minQuotes = e.target.value;
+    this.setState((prevState) => {
+      const newState = { minQuotes };
+      const minQuotesAsInt = parseInt(minQuotes, 10);
+      const maxQuotesAsInt = parseInt(prevState.maxQuotes, 10);
+      if (minQuotesAsInt > maxQuotesAsInt) {
+        newState.maxQuotes = minQuotes;
+      }
+      return newState;
+    });
   }
 
   handleMaxQuotesChange(e) {
-    // make sure does not go below min quotes
-    this.setState({ maxQuotes: e.target.value });
+    const maxQuotes = e.target.value;
+    this.setState((prevState) => {
+      const newState = { maxQuotes };
+      const maxQuotesAsInt = parseInt(maxQuotes, 10);
+      const minQuotesAsInt = parseInt(prevState.minQuotes, 10);
+      if (minQuotesAsInt > maxQuotesAsInt) {
+        newState.minQuotes = maxQuotes;
+      }
+      return newState;
+    });
   }
 
   handleHTagLevelChange(e) {
