@@ -28,7 +28,7 @@
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001/",
-  "homepage": "https://secret-tundra-67488.herokuapp.com/",
+  "homepage": "https://bitconnectcarlosipsum.herokuapp.com/",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
