@@ -9,7 +9,7 @@
   },
   "private": true,
   "dependencies": {
-    "npm": "^5.8.0"
+    "npm": "^5.10.0"
   },
   "scripts": {
     "postinstall": "run-p install:server install:client",

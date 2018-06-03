@@ -197,6 +197,7 @@ class App extends Component {
               rows="20"
               value={this.state.text}
               onChange={this.handleTextChange}
+              onFocus={e => e.target.select()}
             />
           </div>
         </main>
