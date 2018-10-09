@@ -12,7 +12,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "npm": "^5.8.0",
-    "papercss": "^1.4.1",
+    "papercss": "^1.5.4",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-scripts": "1.1.1"
@@ -24,7 +24,7 @@
     "test:unit": "CI=true react-scripts test --env=jsdom --coverage --colors",
     "test:lint": "run-s test:lint:js test:lint:css",
     "test:lint:js": "eslint --ext=js --ext=jsx src/",
-    "test:lint:css": "stylelint src/",
+    "test:lint:css": "stylelint src/**.css",
     "eject": "react-scripts eject"
   },
   "proxy": "http://localhost:3001/",
@@ -36,7 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
     "npm-run-all": "^4.1.2",
-    "stylelint": "^9.2.0",
+    "stylelint": "^9.6.0",
     "stylelint-config-recommended": "^2.1.0"
   }
 }

@@ -9,16 +9,16 @@
   },
   "private": true,
   "dependencies": {
-    "npm": "^5.10.0"
+    "npm": "^6.4.1"
   },
   "scripts": {
-    "postinstall": "run-p install:server install:client",
+    "postinstall": "run-s install:server install:client",
     "install:server": "cd server && npm install",
     "install:client": "cd client && npm install",
     "start": "run-p start:server start:client",
     "start:server": "cd server && npm start",
     "start:client": "cd client && npm start",
-    "build": "run-p build:client",
+    "build": "run-s build:client",
     "build:client": "cd client && npm run build",
     "test": "run-s test:server test:client",
     "test:server": "cd server && npm test",
