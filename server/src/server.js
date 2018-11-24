@@ -25,18 +25,6 @@ const port = process.env.PORT || 3001;
 
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-/*
- * Using static client files only in production because client runs
- * on its own server in development.
- */
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join('..', 'client', 'build')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
-  });
-}
-
 app.get('/api/headings', [hTagLevelValidator, errorHandler], (req, res) => {
   res.send({ headings: getHeadings(req.query.hTagLevel) });
 });
@@ -68,5 +56,17 @@ app.get(
     res.send({ text: getText(req.query) });
   },
 );
+
+/*
+ * Using static client files only in production because client runs
+ * on its own server in development.
+ */
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join('..', 'client', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+  });
+}
 
 module.exports = app.listen(port, () => console.log(`Listening on ${port}`));
