@@ -5,10 +5,15 @@
 [![License](https://img.shields.io/github/license/vanillaSlice/BitconnectCarlosIpsum.svg)](LICENSE)
 
 A [Bitconnect Carlos](https://www.youtube.com/watch?v=QKO6IChjojI) Lorem Ipsum generator. A deployed
-version can be viewed [here](https://bitconnectcarlosipsum.herokuapp.com/).
+version can be viewed [here](https://bitconnectcarlosipsum.herokuapp.com/)
+(Swagger docs can be viewed [here](https://bitconnectcarlosipsum.herokuapp.com/api-docs)).
 
 The app is split into two parts: the client and the server. The server is built with [Node.js](https://nodejs.org/en/)
 and the client is built with [React](https://reactjs.org/).
+
+## Screenshot
+
+![Screenshot](/images/screenshot-1.png)
 
 ## Getting Started
 
@@ -16,7 +21,7 @@ and the client is built with [React](https://reactjs.org/).
 
 * [Node.js](https://nodejs.org/en/)
 
-## Installing dependencies
+### Installing Dependencies
 
 From your terminal/command prompt run:
 
@@ -24,7 +29,7 @@ From your terminal/command prompt run:
 npm install
 ```
 
-## Running locally
+### Running
 
 From your terminal/command prompt run:
 
@@ -32,7 +37,7 @@ From your terminal/command prompt run:
 npm start
 ```
 
-The server runs on [localhost:3001](http://localhost:3001) (documentation can be found at
+The server runs on [localhost:3001](http://localhost:3001) (Swagger docs can be found at
 [localhost:3001/api-docs](http://localhost:3001/api-docs)). The client runs on [localhost:3000](http://localhost:3000).
 
 ## Technology Used
