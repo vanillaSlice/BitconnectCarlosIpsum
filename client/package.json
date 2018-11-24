@@ -29,7 +29,7 @@
     "test:lint": "run-s test:lint:js test:lint:css",
     "test:lint:js": "eslint --ext=js --ext=jsx src/",
     "test:lint:css": "stylelint src/**.css",
-    "test:unit": "CI=true react-scripts test --env=jsdom --coverage --colors",
+    "test:unit": "react-scripts test --env=jsdom --coverage --colors",
     "eject": "react-scripts eject"
   },
   "dependencies": {
@@ -40,7 +40,6 @@
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
   },
-  "proxy": "http://localhost:3001/",
   "devDependencies": {
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -50,6 +49,7 @@
     "stylelint": "^9.8.0",
     "stylelint-config-recommended": "^2.1.0"
   },
+  "proxy": "http://localhost:3001/",
   "private": true,
   "browserslist": [
     ">0.2%",
