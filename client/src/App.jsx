@@ -29,17 +29,25 @@ class App extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    const includeHeadings = this.state.hTagLevel !== 'none';
+    const {
+      hTagLevel,
+      paragraphs,
+      minQuotes,
+      maxQuotes,
+      includePTags,
+    } = this.state;
 
-    let url = '/api/text' +
-      `?paragraphs=${this.state.paragraphs}` +
-      `&includeHeadings=${includeHeadings}` +
-      `&minQuotes=${this.state.minQuotes}` +
-      `&maxQuotes=${this.state.maxQuotes}` +
-      `&includePTags=${this.state.includePTags}`;
+    const includeHeadings = hTagLevel !== 'none';
+
+    let url = '/api/text'
+      + `?paragraphs=${paragraphs}`
+      + `&includeHeadings=${includeHeadings}`
+      + `&minQuotes=${minQuotes}`
+      + `&maxQuotes=${maxQuotes}`
+      + `&includePTags=${includePTags}`;
 
     if (includeHeadings) {
-      url += `&hTagLevel=${this.state.hTagLevel}`;
+      url += `&hTagLevel=${hTagLevel}`;
     }
 
     fetch(url)
@@ -96,7 +104,8 @@ class App extends Component {
   }
 
   handleIncludePTagsChange() {
-    this.setState({ includePTags: !this.state.includePTags });
+    const { includePTags } = this.state;
+    this.setState({ includePTags: !includePTags });
   }
 
   handleTextChange(e) {
@@ -104,6 +113,15 @@ class App extends Component {
   }
 
   render() {
+    const {
+      paragraphs,
+      minQuotes,
+      maxQuotes,
+      hTagLevel,
+      includePTags,
+      text,
+    } = this.state;
+
     return (
       <div className="App container text-center">
         <header className="row flex-center flex-middle">
@@ -122,7 +140,7 @@ class App extends Component {
                     type="number"
                     min="1"
                     max="100"
-                    value={this.state.paragraphs}
+                    value={paragraphs}
                     onChange={this.handleParagraphsChange}
                     id="number-of-paragraphs"
                   />
@@ -136,7 +154,7 @@ class App extends Component {
                     type="number"
                     min="1"
                     max="20"
-                    value={this.state.minQuotes}
+                    value={minQuotes}
                     onChange={this.handleMinQuotesChange}
                     id="min-quotes-per-paragraph"
                   />
@@ -150,7 +168,7 @@ class App extends Component {
                     type="number"
                     min="1"
                     max="20"
-                    value={this.state.maxQuotes}
+                    value={maxQuotes}
                     onChange={this.handleMaxQuotesChange}
                     id="max-quotes-per-paragraph"
                   />
@@ -162,7 +180,7 @@ class App extends Component {
                   <select
                     className="input-block"
                     id="headings"
-                    value={this.state.hTagLevel}
+                    value={hTagLevel}
                     onChange={this.handleHTagLevelChange}
                   >
                     <option value="none">none</option>
@@ -179,7 +197,7 @@ class App extends Component {
                 <label className="input-block paper-check" htmlFor="include-p-tags">
                   <input
                     className="input-block"
-                    value={this.state.includePTags}
+                    value={includePTags}
                     onChange={this.handleIncludePTagsChange}
                     type="checkbox"
                     name="p-tags"
@@ -195,7 +213,7 @@ class App extends Component {
             <textarea
               className="input-block padding no-resize"
               rows="20"
-              value={this.state.text}
+              value={text}
               onChange={this.handleTextChange}
             />
           </div>

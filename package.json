@@ -2,14 +2,25 @@
   "name": "bitconnect-carlos-ipsum",
   "version": "1.0.0",
   "description": "Bitconnect Carlos Matos Lorem Ipsum Generator",
-  "author": "Mike Lowe",
+  "keywords": [
+    "bitconnect",
+    "carlos matos",
+    "lorem ipsum generator"
+  ],
+  "homepage": "https://github.com/vanillaSlice/BitconnectCarlosIpsum#readme",
+  "bugs": {
+    "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum/issues",
+    "email": "mikelowedev@gmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mike Lowe",
+    "email": "mikelowedev@gmail.com",
+    "url": "https://www.mikelowe.xyz/"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vanillaSlice/BitconnectCarlosIpsum.git"
-  },
-  "private": true,
-  "dependencies": {
-    "npm": "^6.4.1"
+    "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum.git"
   },
   "scripts": {
     "postinstall": "run-s install:server install:client",
@@ -22,9 +33,14 @@
     "build:client": "cd client && npm run build",
     "test": "run-s test:server test:client",
     "test:server": "cd server && npm test",
-    "test:client": "cd client && npm test"
+    "test:client": "cd client && npm test",
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
-    "npm-run-all": "^4.1.2"
-  }
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": "11.2.0"
+  },
+  "private": true
 }

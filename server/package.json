@@ -2,32 +2,49 @@
   "name": "bitconnect-carlos-ipsum-server",
   "version": "1.0.0",
   "description": "Bitconnect Carlos Matos Lorem Ipsum Generator Server",
+  "keywords": [
+    "bitconnect",
+    "carlos matos",
+    "lorem ipsum generator"
+  ],
+  "homepage": "https://github.com/vanillaSlice/BitconnectCarlosIpsum#readme",
+  "bugs": {
+    "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum/issues",
+    "email": "mikelowedev@gmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Mike Lowe",
+    "email": "mikelowedev@gmail.com",
+    "url": "https://www.mikelowe.xyz/"
+  },
   "main": "index.js",
-  "author": "Mike Lowe",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vanillaSlice/BitconnectCarlosIpsum.git"
-  },
-  "private": true,
-  "dependencies": {
-    "express": "^4.16.3",
-    "express-validator": "^5.1.0",
-    "npm": "^6.4.1"
+    "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum.git"
   },
   "scripts": {
     "start": "node src/server.js",
-    "test": "run-s test:unit test:lint",
-    "test:unit": "jest --coverage",
-    "test:lint": "eslint src/"
+    "test": "run-s test:lint test:unit",
+    "test:lint": "eslint src/",
+    "test:unit": "jest --coverage"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "express-validator": "^5.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-plugin-import": "^2.10.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0",
-    "jest": "^22.4.3",
-    "npm-run-all": "^4.1.2",
-    "supertest": "^3.0.0"
-  }
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jest": "^23.6.0",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^3.3.0"
+  },
+  "engines": {
+    "node": "11.2.0"
+  },
+  "private": true
 }
