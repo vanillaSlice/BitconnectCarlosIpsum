@@ -1,9 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "This page lists all the REST APIs for the Bitconnect Carlos Matos Lorem Ipsum Generator.",
+    "description": "This page lists all the REST APIs for Bitconnect Carlos Ipsum.",
     "version": "1.0.0",
-    "title": "Bitconnect Carlos Matos Lorem Ipsum Generator",
+    "title": "Bitconnect Carlos Ipsum",
     "contact": {
       "name": "Mike Lowe",
       "url": "https://www.mikelowe.xyz",
