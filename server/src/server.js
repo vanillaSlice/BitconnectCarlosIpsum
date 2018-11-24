@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const swaggerUI = require('swagger-ui-express');
 const {
   hTagLevelValidator,
   includePTagsValidator,
@@ -17,9 +18,12 @@ const {
   getRandomQuote,
   getText,
 } = require('./helpers');
+const swaggerDocument = require('./swagger.json');
 
 const app = express();
 const port = process.env.PORT || 3001;
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 /*
  * Using static client files only in production because client runs
