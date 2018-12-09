@@ -70,37 +70,29 @@ class App extends Component {
   }
 
   handleParagraphsChange(e) {
-    this.setState({ paragraphs: e.target.value });
+    this.setState({ paragraphs: parseInt(e.target.value, 10) });
   }
 
   handleMinQuotesChange(e) {
-    const minQuotes = e.target.value;
+    const minQuotes = parseInt(e.target.value, 10);
     this.setState((prevState) => {
       const newState = { minQuotes };
-      const minQuotesAsInt = parseInt(minQuotes, 10);
-      const maxQuotesAsInt = parseInt(prevState.maxQuotes, 10);
-      if (minQuotesAsInt > maxQuotesAsInt) {
-        newState.maxQuotes = minQuotes;
-      }
+      newState.maxQuotes = Math.max(minQuotes, prevState.maxQuotes);
       return newState;
     });
   }
 
   handleMaxQuotesChange(e) {
-    const maxQuotes = e.target.value;
+    const maxQuotes = parseInt(e.target.value, 10);
     this.setState((prevState) => {
       const newState = { maxQuotes };
-      const maxQuotesAsInt = parseInt(maxQuotes, 10);
-      const minQuotesAsInt = parseInt(prevState.minQuotes, 10);
-      if (minQuotesAsInt > maxQuotesAsInt) {
-        newState.minQuotes = maxQuotes;
-      }
+      newState.minQuotes = Math.min(maxQuotes, prevState.minQuotes);
       return newState;
     });
   }
 
   handleHTagLevelChange(e) {
-    this.setState({ hTagLevel: e.target.value });
+    this.setState({ hTagLevel: parseInt(e.target.value, 10) });
   }
 
   handleIncludePTagsChange() {
@@ -215,6 +207,7 @@ class App extends Component {
               rows="20"
               value={text}
               onChange={this.handleTextChange}
+              id="text"
             />
           </div>
         </main>
