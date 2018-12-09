@@ -45,6 +45,8 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1",
+    "fetch-mock": "^7.2.5",
+    "node-fetch": "^2.3.0",
     "npm-run-all": "^4.1.5",
     "stylelint": "^9.9.0",
     "stylelint-config-recommended": "^2.1.0"
@@ -56,5 +58,18 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.jsx"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
+        "statements": 90
+      }
+    }
+  }
 }
