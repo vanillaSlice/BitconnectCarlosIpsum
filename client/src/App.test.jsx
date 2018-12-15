@@ -45,7 +45,7 @@ it('updates maximum quotes', () => {
 });
 
 it('updates heading tag level', () => {
-  expect(wrapper.state('hTagLevel')).toBe('none');
+  expect(wrapper.state('hTagLevel')).toBe(0);
 
   const input = wrapper.find('#headings');
   input.instance().value = 1;
