@@ -12,7 +12,7 @@ class App extends Component {
       paragraphs: 1,
       minQuotes: 1,
       maxQuotes: 5,
-      hTagLevel: 'none',
+      hTagLevel: 0,
       includePTags: false,
       text: '',
     };
@@ -37,7 +37,7 @@ class App extends Component {
       includePTags,
     } = this.state;
 
-    const includeHeadings = hTagLevel !== 'none';
+    const includeHeadings = hTagLevel !== 0;
 
     let url = '/api/text'
       + `?paragraphs=${paragraphs}`
@@ -175,7 +175,7 @@ class App extends Component {
                     value={hTagLevel}
                     onChange={this.handleHTagLevelChange}
                   >
-                    <option value="none">none</option>
+                    <option value="0">none</option>
                     <option value="1">h1</option>
                     <option value="2">h2</option>
                     <option value="3">h3</option>
