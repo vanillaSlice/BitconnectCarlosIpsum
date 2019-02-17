@@ -7,7 +7,7 @@
     "carlos matos",
     "lorem ipsum generator"
   ],
-  "homepage": "https://github.com/vanillaSlice/BitconnectCarlosIpsum#readme",
+  "homepage": "https://bitconnectcarlosipsum.herokuapp.com/",
   "bugs": {
     "url": "https://github.com/vanillaSlice/BitconnectCarlosIpsum/issues",
     "email": "mikelowedev@gmail.com"
@@ -33,14 +33,14 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.9.1",
     "papercss": "^1.6.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
   },
   "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "eslint-config-airbnb": "^17.1.0",
     "fetch-mock": "^7.3.0",
     "node-fetch": "^2.3.0",
