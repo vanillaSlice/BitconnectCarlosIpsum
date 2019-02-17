@@ -1,6 +1,6 @@
 {
-  "short_name": "Bitconnect Carlos Ipsum",
   "name": "Bitconnect Carlos Ipsum",
+  "short_name": "Bitconnect Carlos Ipsum",
   "icons": [{
       "src": "./android-chrome-192x192.png",
       "sizes": "192x192",
@@ -12,8 +12,8 @@
       "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
-  "display": "standalone",
   "theme_color": "#ffffff",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "./index.html"
 }

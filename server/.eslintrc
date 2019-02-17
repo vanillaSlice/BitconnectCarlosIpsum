@@ -1,13 +1,12 @@
 {
-  "extends": "airbnb",
   "env": {
     "jest": true,
     "node": true
   },
+  "extends": "airbnb-base",
   "rules": {
     "no-console": "off",
-    "no-mixed-operators": "off",
-    "no-use-before-define": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "no-use-before-define": "off"
   }
 }
