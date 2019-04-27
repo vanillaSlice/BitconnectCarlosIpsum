@@ -1,4 +1,5 @@
 h1 {
+  font-size: 3rem;
   margin: 0;
 }
 
@@ -18,6 +19,7 @@ header img.left {
 
 @media (min-width: 62em) {
   h1 {
+    font-size: 4rem;
     margin: 2.68rem 0 1rem;
   }
 
