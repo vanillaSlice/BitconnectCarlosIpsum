@@ -120,7 +120,9 @@ class App extends Component {
       <div className="App container text-center">
         <header className="row flex-center flex-middle">
           <img className="left no-border" src={carlosImg} alt="Carlos Matos" title="Carlos Matos" />
-          <h1 className="col col-12 md-9">Bitconnect Carlos Ipsum</h1>
+          <h1 className="col col-12 md-9">
+            <a href=".">Bitconnect Carlos Ipsum</a>
+          </h1>
           <img className="right no-border" src={carlosImg} alt="Carlos Matos" title="Carlos Matos" />
         </header>
         <main className="row margin-bottom-none">
