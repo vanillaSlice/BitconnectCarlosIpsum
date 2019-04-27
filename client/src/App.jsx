@@ -4,6 +4,8 @@ import './App.css';
 
 import carlosImg from './carlos.png';
 
+import { version } from '../package.json';
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -121,7 +123,7 @@ class App extends Component {
           <h1 className="col col-12 md-9">Bitconnect Carlos Ipsum</h1>
           <img className="right no-border" src={carlosImg} alt="Carlos Matos" title="Carlos Matos" />
         </header>
-        <main className="row">
+        <main className="row margin-bottom-none">
           <div className="col col-12 md-4 text-left">
             <form onSubmit={this.handleFormSubmit}>
               <div className="form-group">
@@ -201,7 +203,7 @@ class App extends Component {
               <button className="btn-block" type="submit">BITCONNEEEEEEEEEEEECT!</button>
             </form>
           </div>
-          <div className="form-group col col-12 md-8">
+          <div className="form-group col col-12 md-8 margin-bottom-none">
             <textarea
               className="input-block padding no-resize"
               rows="20"
@@ -211,6 +213,20 @@ class App extends Component {
             />
           </div>
         </main>
+        <footer className="col col-12">
+          <div className="row flex-edges margin-none">
+            <p>
+              v
+              {version}
+            </p>
+            <p>
+              Made with&nbsp;
+              <span role="img" aria-label="music">🎧</span>
+              &nbsp;by&nbsp;
+              <a href="https://mikelowe.xyz">Mike</a>
+            </p>
+          </div>
+        </footer>
       </div>
     );
   }
