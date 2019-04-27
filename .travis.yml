@@ -3,5 +3,5 @@ branches:
   only:
     - master
 node_js:
-  - stable
+  - '11'
 cache: npm

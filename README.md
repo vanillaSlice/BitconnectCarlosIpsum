@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/github/license/vanillaSlice/BitconnectCarlosIpsum.svg)](LICENSE)
 
 A [Bitconnect Carlos](https://www.youtube.com/watch?v=QKO6IChjojI) Lorem Ipsum generator. A deployed
-version can be viewed [here](https://bitconnectcarlosipsum.herokuapp.com/)
-(Swagger docs can be viewed [here](https://bitconnectcarlosipsum.herokuapp.com/api-docs)).
+version can be viewed [here](https://bitconnectcarlosipsum.mikelowe.xyz/)
+(Swagger docs can be viewed [here](https://bitconnectcarlosipsum.mikelowe.xyz/api-docs)).
 
 The app is split into two parts: the client and the server. The server is built with [Node.js](https://nodejs.org/en/)
 and the client is built with [React](https://reactjs.org/).

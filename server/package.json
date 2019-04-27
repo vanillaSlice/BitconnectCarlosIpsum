@@ -42,7 +42,7 @@
     "supertest": "^3.4.2"
   },
   "engines": {
-    "node": "11.10.0"
+    "node": "11.14.0"
   },
   "private": true
 }
