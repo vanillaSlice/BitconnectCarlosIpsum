@@ -6,7 +6,7 @@ function getHeadings(hTagLevel) {
 }
 
 function addHTags(hTagLevel, headings) {
-  return headings.map(heading => addHTag(hTagLevel, heading));
+  return headings.map((heading) => addHTag(hTagLevel, heading));
 }
 
 function addHTag(hTagLevel, heading) {
@@ -35,7 +35,7 @@ function getQuotes(includePTags) {
 }
 
 function addPTags(paragraphs) {
-  return paragraphs.map(paragraph => addPTag(paragraph));
+  return paragraphs.map((paragraph) => addPTag(paragraph));
 }
 
 function addPTag(paragraph) {

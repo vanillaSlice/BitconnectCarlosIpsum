@@ -333,14 +333,6 @@
     "hTagLevelError": {
       "type": "object",
       "properties": {
-        "location": {
-          "type": "string",
-          "example": "query"
-        },
-        "param": {
-          "type": "string",
-          "example": "hTagLevel"
-        },
         "value": {
           "type": "string",
           "example": "12"
@@ -348,20 +340,20 @@
         "msg": {
           "type": "string",
           "example": "must be between 1 and 6"
+        },
+        "param": {
+          "type": "string",
+          "example": "hTagLevel"
+        },
+        "location": {
+          "type": "string",
+          "example": "query"
         }
       }
     },
     "paragraphsError": {
       "type": "object",
       "properties": {
-        "location": {
-          "type": "string",
-          "example": "query"
-        },
-        "param": {
-          "type": "string",
-          "example": "paragraphs"
-        },
         "value": {
           "type": "string",
           "example": "101"
@@ -369,20 +361,20 @@
         "msg": {
           "type": "string",
           "example": "must be between 1 and 100"
+        },
+        "param": {
+          "type": "string",
+          "example": "paragraphs"
+        },
+        "location": {
+          "type": "string",
+          "example": "query"
         }
       }
     },
     "minQuotesError": {
       "type": "object",
       "properties": {
-        "location": {
-          "type": "string",
-          "example": "query"
-        },
-        "param": {
-          "type": "string",
-          "example": "minQuotes"
-        },
         "value": {
           "type": "string",
           "example": "0"
@@ -390,20 +382,20 @@
         "msg": {
           "type": "string",
           "example": "must be between 1 and 20"
+        },
+        "param": {
+          "type": "string",
+          "example": "minQuotes"
+        },
+        "location": {
+          "type": "string",
+          "example": "query"
         }
       }
     },
     "maxQuotesError": {
       "type": "object",
       "properties": {
-        "location": {
-          "type": "string",
-          "example": "query"
-        },
-        "param": {
-          "type": "string",
-          "example": "maxQuotes"
-        },
         "value": {
           "type": "string",
           "example": "21"
@@ -411,6 +403,14 @@
         "msg": {
           "type": "string",
           "example": "must be between 1 and 20"
+        },
+        "param": {
+          "type": "string",
+          "example": "maxQuotes"
+        },
+        "location": {
+          "type": "string",
+          "example": "query"
         }
       }
     }

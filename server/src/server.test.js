@@ -14,7 +14,7 @@ describe('GET /api/headings', () => {
 
   for (let i = 1; i <= 6; i += 1) {
     it(`?hTagLevel=${i} returns array of all headings with surrounding <h${i}> tags`, (done) => {
-      const headingsWithTags = headings.map(heading => `<h${i}>${heading}</h${i}>`);
+      const headingsWithTags = headings.map((heading) => `<h${i}>${heading}</h${i}>`);
       request(server)
         .get(`${baseUrl}?hTagLevel=${i}`)
         .expect(200, { headings: headingsWithTags }, done);
@@ -83,7 +83,7 @@ describe('GET /api/quotes', () => {
   });
 
   it('?includePTags=true returns array of all quotes with surrounding <p> tags', (done) => {
-    const quotesWithTags = quotes.map(quote => `<p>${quote}</p>`);
+    const quotesWithTags = quotes.map((quote) => `<p>${quote}</p>`);
     request(server)
       .get(`${baseUrl}?includePTags=true`)
       .expect(200, { quotes: quotesWithTags }, done);
