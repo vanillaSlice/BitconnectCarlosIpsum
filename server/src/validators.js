@@ -1,32 +1,27 @@
-const { query, validationResult } = require('express-validator/check');
+const { query, validationResult } = require('express-validator');
 
 const hTagLevelValidator = query('hTagLevel')
   .isInt({ min: 1, max: 6 })
   .withMessage('must be between 1 and 6')
-  .toInt()
   .optional();
 
 const includePTagsValidator = booleanValidator('includePTags');
 
 function booleanValidator(field) {
   return query(field)
-    .isBoolean()
-    .withMessage('must be a boolean')
     .toBoolean(true)
     .optional();
 }
 
 const paragraphsValidator = query('paragraphs')
   .isInt({ min: 1, max: 100 })
-  .withMessage('must be between 1 and 100')
-  .toInt();
+  .withMessage('must be between 1 and 100');
 
 const includeHeadingsValidator = booleanValidator('includeHeadings');
 
 const minQuotesAndMaxQuotesValidator = query(['minQuotes', 'maxQuotes'])
   .isInt({ min: 1, max: 20 })
-  .withMessage('must be between 1 and 20')
-  .toInt();
+  .withMessage('must be between 1 and 20');
 
 const minQuotesLessThanMaxQuotesValidator = query('minQuotes')
   .custom((value, { req }) => {
